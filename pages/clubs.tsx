@@ -1,8 +1,10 @@
+
 import { Heading, Text, Box } from "@chakra-ui/react"
 import Gallery from "../components/clubs/gallery"
 import Layout from "../components/layout/Layout"
 import Navbar from "../components/layout/Navbar"
 import { ClubComponent } from "../types"
+
 
 const data: ClubComponent[] = [
   {
@@ -25,7 +27,6 @@ const data: ClubComponent[] = [
   },
 ]
 const ClubsPage = () => (
-
   <Layout title="Clubs">
     <Box width="80%" margin="auto">
       <Heading size={"xl"}>
@@ -34,7 +35,7 @@ const ClubsPage = () => (
       <Gallery components={data} />
     </Box>
   </Layout >
-
 )
 
 export default ClubsPage
+

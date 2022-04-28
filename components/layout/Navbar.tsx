@@ -1,12 +1,12 @@
-import React from "react"
-import NextLink from "next/link"
-import { Box, Button, HStack, Link } from "@chakra-ui/react"
-import { useRouter } from "next/router"
+import React from "react";
+import NextLink from "next/link";
+import { Box, Button, HStack, Link } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 type NavLinkData = {
-  name: string
-  path: string
-}
+  name: string;
+  path: string;
+};
 
 const navData: NavLinkData[] = [
   {
@@ -14,13 +14,16 @@ const navData: NavLinkData[] = [
     path: "/",
   },
   {
+    name: "Login",
+    path: "/login",
+  },
+  {
     name: "Explore",
     path: "/clubs",
   },
-]
 
 const NavLink = ({ name, path }: NavLinkData) => {
-  const { pathname: currentPath } = useRouter()
+  const { pathname: currentPath } = useRouter();
   return (
     <NextLink key={path} href={path} passHref>
       <Link
@@ -39,8 +42,8 @@ const NavLink = ({ name, path }: NavLinkData) => {
         </Button>
       </Link>
     </NextLink>
-  )
-}
+  );
+};
 
 const Navbar = () => {
   return (
@@ -53,7 +56,7 @@ const Navbar = () => {
         </HStack>
       </HStack>
     </Box>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
