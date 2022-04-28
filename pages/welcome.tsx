@@ -1,9 +1,12 @@
-import Welcome from "../components/welcome/welcome"
+import Layout from "../components/layout/Layout";
+import Welcome from "../components/welcome/welcome";
 
 const WelcomePage = () => {
-    return (
-        <Welcome />
-    )
-}
+  return (
+    <Layout title="Welcome">
+      <Welcome />
+    </Layout>
+  );
+};
 
-export default WelcomePage
+export default WelcomePage;
