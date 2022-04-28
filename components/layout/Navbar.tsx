@@ -18,10 +18,9 @@ const navData: NavLinkData[] = [
     path: "/login",
   },
   {
-    name: "Clubs",
+    name: "Explore",
     path: "/clubs",
   },
-];
 
 const NavLink = ({ name, path }: NavLinkData) => {
   const { pathname: currentPath } = useRouter();
