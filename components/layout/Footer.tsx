@@ -6,7 +6,7 @@ const Footer = () => (
     <Divider my={4} />
     <Text fontSize="sm" color="subtle">
       Created by Harrison Chin (hc955), Ariela Gettig (aqg3),
-      Peter Huo (yh384), and Raymond Lin(rl569)
+      Peter Huo (yh384), and Raymond Lin (rl569)
     </Text>
   </Box>
 )
