@@ -3,7 +3,7 @@ import { Box, Heading } from "@chakra-ui/react"
 import React from "react"
 import { ClubComponent } from "../../types"
 import styles from "../clubs/clubs.module.css"
-import ClubCategory from "./clubCategory"
+import ClubCategory from "./ClubCategory"
 
 type Props = {
   components: ClubComponent[]

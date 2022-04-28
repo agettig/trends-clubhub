@@ -27,8 +27,6 @@ const data: ClubComponent[] = [
 const ClubsPage = () => (
 
   <Layout title="Clubs">
-    <Navbar />
-
     <Box width="80%" margin="auto">
       <Heading size={"xl"}>
         Clubs

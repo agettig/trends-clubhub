@@ -2,8 +2,8 @@ import { Button, HStack, Input } from "@chakra-ui/react";
 import { addDoc, collection, query } from "firebase/firestore";
 import { Formik } from "formik";
 import { FormEventHandler, useState } from "react";
-// import { Task } from "../../types"
-// import { db } from "../../util/firebase"
+import { Task } from "../../types"
+import { db } from "../../util/firebase"
 
 const Login = () => {
   const [input, setInput] = useState("");
