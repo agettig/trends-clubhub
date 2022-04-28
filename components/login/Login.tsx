@@ -16,26 +16,26 @@ const Login = () => {
   };
 
   const renderForm = (
-    <div className={styles.form}>
+    <div>
       <form onSubmit={login}>
         <div className={styles.inputContainer}>
           <label>Username </label>
-          <input type="text" name="" required />
+          <input type="text" name="" required className={styles.text} />
         </div>
         <div className={styles.inputContainer}>
           <label>Password </label>
-          <input type="password" name="" required />
+          <input type="password" name="" required className={styles.password} />
         </div>
-        <div className={styles.buttonContainer}>
-          <input type="submit" />
+        <div className={styles.button}>
+          <input type="submit" className={styles.submit} />
         </div>
       </form>
     </div>
   );
 
   return (
-    <div className={styles.app}>
-      <div className={styles.loginForm}>
+    <div className={styles.page}>
+      <div className={styles.form}>
         <div className={styles.title}>Sign In</div>
         {isSubmitted ? "" : renderForm}
       </div>

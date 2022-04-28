@@ -1,43 +1,40 @@
-.app {
-  font-family: sans-serif;
+.page {
+  font-family: Georgia, Times, "Times New Roman", serif, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
   height: 100vh;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background-color: #f8f9fd;
 }
 
-/* input[type="text"],
-input[type="password"] {
+.text,
+.password {
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-input[type="submit"] {
+.submit {
   margin-top: 10px;
   cursor: pointer;
   font-size: 15px;
-  background: #01d28e;
-  border: 1px solid #01d28e;
+  background: #4701d2;
+  border: 1px solid white;
   color: #fff;
   padding: 10px 20px;
 }
 
-input[type="submit"]:hover {
-  background: #6cf0c2;
-} */
+.submit:hover {
+  background: #c46cf0;
+}
 
-.buttonContainer {
+.button {
   display: flex;
   justify-content: center;
 }
 
-.loginForm {
+.form {
   background-color: white;
-  padding: 2rem;
+  padding: 3rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -46,13 +43,12 @@ input[type="submit"]:hover {
 }
 
 .title {
-  font-size: 25px;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
 .inputContainer {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin: 10px;
+  margin: 1rem;
 }
