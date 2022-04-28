@@ -1,5 +1,5 @@
 import { Heading, Text, Box } from "@chakra-ui/react"
-import Gallery from "../components/clubs/Gallery"
+import Gallery from "../components/clubs/gallery"
 import Layout from "../components/layout/Layout"
 import Navbar from "../components/layout/Navbar"
 import { ClubComponent } from "../types"
