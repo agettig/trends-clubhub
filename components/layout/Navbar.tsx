@@ -21,6 +21,7 @@ const navData: NavLinkData[] = [
     name: "Explore",
     path: "/clubs",
   },
+];
 
 const NavLink = ({ name, path }: NavLinkData) => {
   const { pathname: currentPath } = useRouter();
