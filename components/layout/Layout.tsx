@@ -17,6 +17,7 @@ const Layout = ({ children, title }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
+    <Navbar />
     <Container my={6}>{children}</Container>
     <Footer />
   </div>
