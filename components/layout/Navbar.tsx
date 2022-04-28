@@ -14,12 +14,16 @@ const navData: NavLinkData[] = [
     path: "/",
   },
   {
-    name: "Login",
-    path: "/login",
+    name: "Welcome",
+    path: "/welcome",
   },
   {
     name: "Explore",
     path: "/clubs",
+  },
+  {
+    name: "Login",
+    path: "/login",
   },
 ];
 
