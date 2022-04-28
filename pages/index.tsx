@@ -1,11 +1,14 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import Login from "../components/login/Login";
+import { Heading, Text } from "@chakra-ui/react"
+import Layout from "../components/layout/Layout"
 
-const Home: NextPage = () => {
-  return <Login></Login>;
-};
+const IndexPage = () => (
+  <Layout title="Home">
+    <Heading my="4">
+      ClubHub
+    </Heading>
 
-export default Home;
+  </Layout >
+)
+
+export default IndexPage
+
