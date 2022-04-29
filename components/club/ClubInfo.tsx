@@ -2,7 +2,7 @@ import { ClubInfo } from "../../types";
 import image from '../clubs/gymnastics.jpg';
 import { Heading, Image } from '@chakra-ui/react'
 import Link from 'next/link'
-import {Button, Box} from "@chakra-ui/react"
+import { Button, Box } from "@chakra-ui/react"
 
 const clubData: ClubInfo = {
     clubName: "Big Red Football",
@@ -16,20 +16,24 @@ const clubData: ClubInfo = {
 
 const ClubInfo = () => {
     return (
-    <>
-        <Heading>{clubData.clubName}</Heading>
-        <p>Email: {clubData.email}</p>
-        <Image src={clubData.image} alt="Image"/>
-        <p>Description: {clubData.description}</p>
-        <br></br>
-        <span>Upcoming Event:</span>
-        <Link href="https://cornellbigred.com/news/2022/4/22/womens-track-field-saac-nami-to-host-mental-health-awareness-challenge-from-may-1-8.aspx" passHref>
-            <a> 
-                <u> {clubData.event} </u>
-            </a>
-        </Link> 
-    </>
+        <>
+            <Box width="80%" margin="auto">
+                <Heading>{clubData.clubName}</Heading>
+                <p>Email: {clubData.email}</p>
+                <Image src={clubData.image} alt="Image" />
+                <p>Description: {clubData.description}</p>
+                <br></br>
+                <span>Upcoming Event:</span>
+                <Link
+                    href="https://cornellbigred.com/news/2022/4/22/womens-track-field-saac-nami-to-host-mental-health-awareness-challenge-from-may-1-8.aspx"
+                    passHref>
+                    <a target="_blank">
+                        <u> {clubData.event} </u>
+                    </a>
+                </Link>
+            </Box>
+        </>
     )
-  }
-  
-  export default ClubInfo
+}
+
+export default ClubInfo

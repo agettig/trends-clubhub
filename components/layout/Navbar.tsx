@@ -25,6 +25,10 @@ const navData: NavLinkData[] = [
     name: "Login",
     path: "/login",
   },
+  {
+    name: "Club Details",
+    path: "/clubinfo",
+  },
 ];
 
 const NavLink = ({ name, path }: NavLinkData) => {
