@@ -11,12 +11,15 @@ type Props = {
 
 const ClubEntry = ({ club }: Props) => {
   return (
-    <Box className={styles.element}>
+    <Box className={styles.element} borderWidth="1px" borderRadius="lg" p="4">
       <Box className="image-container">
         <Image src={image.src} alt="Image" className="image-style" />
       </Box>
-      <Box margin="auto" padding={20}><h3>{club.clubName}</h3></Box>
-
+      <Box margin="auto">
+        <Heading size="md">
+          {club.clubName}
+        </Heading>
+      </Box>
     </Box>
   )
 }
