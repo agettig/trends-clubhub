@@ -8,10 +8,8 @@
 }
 
 .element {
-  width: 225px;
-  height: 300px;
+  width: 200px;
   border: 1px solid black;
-  margin: 1em;
   overflow: hidden;
   box-shadow: 3px 3px 4px -1px #000000;
   display: inline-block;

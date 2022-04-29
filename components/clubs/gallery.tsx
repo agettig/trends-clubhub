@@ -12,11 +12,14 @@ type Props = {
 const Gallery = ({ components }: Props) => {
   return (
     <>
+
       {components.map(component => {
         return (
           <ClubCategory key={component.category} component={component} />
         )
       })}
+
+
     </>
   )
 }

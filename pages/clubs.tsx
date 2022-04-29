@@ -1,8 +1,7 @@
 
-import { Heading, Text, Box } from "@chakra-ui/react"
+import { Heading, Text, Box, Divider, Container } from "@chakra-ui/react"
 import Gallery from "../components/clubs/gallery"
 import Layout from "../components/layout/Layout"
-import Navbar from "../components/layout/Navbar"
 import { ClubComponent } from "../types"
 
 
@@ -28,12 +27,11 @@ const data: ClubComponent[] = [
 ]
 const ClubsPage = () => (
   <Layout title="Clubs">
-    <Box width="80%" margin="auto">
-      <Heading size={"xl"}>
-        Clubs
-      </Heading>
-      <Gallery components={data} />
-    </Box>
+    <Heading size={"xl"} textAlign="center">
+      Clubs
+    </Heading>
+    <Divider />
+    <Gallery components={data} />
   </Layout >
 )
 
