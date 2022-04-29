@@ -1,43 +1,51 @@
 // import { addDoc, collection, query } from "firebase/firestore";
-// import { Formik } from "formik";
-import { FormEventHandler, useState } from "react";
+import { Button, Input } from "@chakra-ui/react";
+import { MouseEventHandler, useState } from "react";
 import styles from "./login.module.css";
-// import { Task } from "../../types"
 // import { db } from "../../util/firebase"
 
 const Login = () => {
-  const [input, setInput] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const login: FormEventHandler<HTMLFormElement> = (e) => {
+  const login: MouseEventHandler<HTMLButtonElement> | undefined = (e) => {
     e.preventDefault();
 
-    setInput("");
+    setUsername("");
+    setPassword("");
   };
-
-  const renderForm = (
-    <div>
-      <form onSubmit={login}>
-        <div className={styles.inputContainer}>
-          <label>Username </label>
-          <input type="text" name="" required className={styles.text} />
-        </div>
-        <div className={styles.inputContainer}>
-          <label>Password </label>
-          <input type="password" name="" required className={styles.password} />
-        </div>
-        <div className={styles.button}>
-          <input type="submit" className={styles.submit} />
-        </div>
-      </form>
-    </div>
-  );
 
   return (
     <div className={styles.page}>
       <div className={styles.form}>
         <div className={styles.title}>Sign In</div>
-        {isSubmitted ? "" : renderForm}
+        <div className={styles.text}>
+          <Input
+            value={username}
+            type="text"
+            placeholder="John Doe"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div className={styles.password}>
+          <Input
+            value={password}
+            type="password"
+            placeholder="QWERTY1234"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className={styles.button}>
+          <Button
+            type="submit"
+            onClick={login}
+            _focusVisible={{ shadow: "outline" }}
+            _focus={{ shadow: "none" }}
+            colorScheme={"facebook"}
+          >
+            Login
+          </Button>
+        </div>
       </div>
     </div>
   );
