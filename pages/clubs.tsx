@@ -31,7 +31,9 @@ const ClubsPage = () => (
       Clubs
     </Heading>
     <Divider />
-    <Gallery components={data} />
+    <Box maxWidth='80%' margin='auto'>
+      <Gallery components={data} />
+    </Box>
   </Layout >
 )
 

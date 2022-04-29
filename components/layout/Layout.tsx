@@ -18,7 +18,7 @@ const Layout = ({ children, title }: Props) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Navbar />
-    <Container maxWidth="80%" my={6}>{children}</Container>
+    <Container maxWidth="100%" my={6}>{children}</Container>
     <Footer />
   </div>
 );
