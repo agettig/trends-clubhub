@@ -4,6 +4,7 @@ import { Club } from "../../types"
 import styles from "../clubs/clubs.module.css"
 import { Image } from '@chakra-ui/react'
 import image from './gymnastics.jpg'
+import Link from 'next/link'
 
 type Props = {
   club: Club
@@ -16,9 +17,13 @@ const ClubEntry = ({ club }: Props) => {
         <Image src={image.src} alt="Image" className="image-style" />
       </Box>
       <Box margin="auto">
-        <Heading size="md">
-          {club.clubName}
-        </Heading>
+        <Link href="/clubinfo" passHref>
+          <a> 
+            <Heading size="md">
+              {club.clubName} 
+            </Heading>
+          </a>
+        </Link>
       </Box>
     </Box>
   )
