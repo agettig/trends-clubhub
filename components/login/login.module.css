@@ -9,25 +9,12 @@
 
 .text,
 .password {
-  height: 25px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.submit {
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 15px;
-  background: #4701d2;
-  border: 1px solid white;
-  color: #fff;
-  padding: 10px 20px;
-}
-
-.submit:hover {
-  background: #c46cf0;
+  margin-bottom: 0.5rem;
 }
 
 .button {
+  margin-top: 0.5rem;
+  cursor: pointer;
   display: flex;
   justify-content: center;
 }
