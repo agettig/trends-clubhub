@@ -1,4 +1,4 @@
-import ClubInfo from "../components/club/ClubInfo";
+import ClubInfo from "../components/club_info/ClubInfo";
 import Layout from "../components/layout/Layout"
 
 const ClubInfoPage = () => (
