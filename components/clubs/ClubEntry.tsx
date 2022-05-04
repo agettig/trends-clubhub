@@ -12,20 +12,18 @@ type Props = {
 
 const ClubEntry = ({ club }: Props) => {
   return (
-    <Box className={styles.element} borderWidth="1px" borderRadius="lg" p="4">
-      <Box className="image-container">
-        <Image src={image.src} alt="Image" className="image-style" />
+    <Link href="/clubinfo" passHref>
+      <Box className={styles.element} borderWidth="1px" borderRadius="lg" p="4">
+          <Box className="image-container">
+            <Image src={image.src} alt="Image" className="image-style" />
+          </Box>
+        <Box margin="auto">
+          <Heading size="md">
+            {club.clubName} 
+          </Heading>
+        </Box>
       </Box>
-      <Box margin="auto">
-        <Link href="/clubinfo" passHref>
-          <a> 
-            <Heading size="md">
-              {club.clubName} 
-            </Heading>
-          </a>
-        </Link>
-      </Box>
-    </Box>
+    </Link>
   )
 }
 
