@@ -42,7 +42,7 @@ const BoxAndButton = ( {description, buttonName, buttonPath }: BoxData) => {
             { (buttonPath || buttonName)  &&
                 <Box mt="4">
                     <NextLink key={buttonPath} href={buttonPath} passHref>
-                        <Button colorScheme="blue">{buttonName}</Button>
+                        <Button colorScheme="facebook">{buttonName}</Button>
                     </NextLink>
                 </Box>
             }
