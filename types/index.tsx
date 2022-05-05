@@ -1,23 +1,29 @@
 import { StringDecoder } from "string_decoder"
 
 export type Club = {
-  clubName: string
-  clubId: number
-  // img_source: string
+  name: string
+  email: string
+  image: string
+  description: string
+  website: string
+  president: string
+}
+
+export type ClubWithId = Club & {
+  id: string
 }
 
 export type ClubComponent = {
   category: string
-  clubs: Club[]
+  clubs: ClubWithId[]
 
 }
 
-export type ClubInfo = Club & {
-  followed: boolean
-  email: string,
-  image: string,
-  description: string,
-  event: string
+export type Event = {
+  date: string
+  description: string
+  club: string
+  likes: number
 }
 
 export type Category = "project-team" | "sports"

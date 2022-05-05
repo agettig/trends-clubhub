@@ -6,25 +6,23 @@ import { ClubComponent } from "../../types"
 import ClubEntry from "./ClubEntry"
 
 
+
 type Props = {
   component: ClubComponent
 }
 
-const ClubCategory = ({ component: { category, clubs } }: Props) => {
-
+const ClubCategory = ({ component }: Props) => {
+  console.log({ component })
   return (
 
     < Box padding={10} marginTop={10} borderWidth="1px" borderRadius="sm" p="4">
-      <Heading size="lg" marginBottom={4}>{category}</Heading>
+      <Heading size="lg" marginBottom={4}>{component.category}</Heading>
       <Flex flexWrap="wrap" direction="row" align="stretch" justify="space-around">
-        {clubs.map(
+        {component.clubs.map(
           (club) => {
-            return (
-
-              <ClubEntry key={club.clubId} club={club}
-              />)
-          }
-        )}</Flex>
+            return (<ClubEntry key={club.id} club={club} />)
+          })}
+      </Flex>
 
 
     </Box >
