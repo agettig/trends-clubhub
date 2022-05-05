@@ -27,15 +27,16 @@ const Events = ({ clubName }: Props) => {
   const [events, setEvents] = useState<Event[] | null>(null)
 
   useEffect(() => {
-    const eventQuery = query(eventsCollectionRef, where('hostClub', '==', { clubName }))
+    const eventQuery = query(eventsCollectionRef, where('hostClub', '==', clubName))
     const unsubscribe = onSnapshot(eventQuery, (querySnapshot) => {
       const eventArr = querySnapshot.docs.map(event => ({ ...event.data(), id: event.id } as Event))
       setEvents(eventArr)
     }
     )
     return unsubscribe
-  }, [clubName])
+  }, [])
 
+  console.log(events)
   return (
     <>
       <Heading size="md">Upcoming Events:</Heading>

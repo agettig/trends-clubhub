@@ -5,8 +5,6 @@ import styles from "../clubs/clubs.module.css"
 import { Image } from '@chakra-ui/react'
 import image from './gymnastics.jpg'
 import Link from 'next/link'
-import { query, collection, where } from "firebase/firestore"
-import { db } from "../../util/firebase"
 
 type Props = {
   club: ClubWithId

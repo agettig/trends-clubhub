@@ -9,21 +9,27 @@ import Events from "./Events";
 
 
 const event: string = "SAAC, NAMI To Host Mental Health Awareness Challenge From May 1-8"
+
 type Props = {
     clubData: ClubWithId | null
 }
 
+const clubsCollectionRef = query(
+    collection(db, "clubs")
+)
+
 const ClubInfo = () => {
+
     let url = ((new URL(window.location.href)))
 
     let clubName = url.searchParams.get('club')
-    const [club, setClub] = useState<ClubWithId[] | null>(null)
 
-    const clubsCollectionRef = query(
-        collection(db, "clubs")
-    )
+    console.log(clubName)
+
 
     const clubQuery = query(clubsCollectionRef, where('name', '==', clubName))
+
+    const [club, setClub] = useState<ClubWithId[] | null>(null)
 
     useEffect(() => {
         const unsubscribe = onSnapshot(clubQuery, (querySnapshot) => {
@@ -32,14 +38,15 @@ const ClubInfo = () => {
         }
         )
         return unsubscribe
-    })
+    }, [])
 
-    console.log("test")
     const clubData = club ? club[0] : null
+    console.log(clubData)
 
     return (
 
         <>
+            {console.log(clubName)}
             {clubData ? (
                 <Box width="80%" margin="auto">
                     <Heading>{clubData.name}</Heading>
@@ -47,10 +54,12 @@ const ClubInfo = () => {
                     {clubData.image ?? <Image src={clubData.image} alt="Image" />}
                     <p>Description: {clubData.description}</p>
                     <Divider />
+
                     <Events clubName={clubName} />
                 </Box>)
                 : <Box></Box>}
-        </>)
+        </>
+    )
 }
 
 export default ClubInfo
