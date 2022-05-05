@@ -1,15 +1,9 @@
-import { addDoc, collection, query } from "firebase/firestore";
 import GoogleButton from "react-google-button";
 import { FacebookLoginButton } from "react-social-login-buttons";
-import { MouseEventHandler, useState } from "react";
 import styles from "./login.module.css";
-import { db, signInWithGoogle } from "../../util/firebase";
+import { signInWithGoogle } from "../../util/firebase";
 
 const Login = () => {
-  const login: MouseEventHandler<HTMLButtonElement> | undefined = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <div className={styles.page}>
       <div className={styles.form}>
