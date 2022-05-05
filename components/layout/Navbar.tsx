@@ -24,12 +24,20 @@ const navData: NavLinkData[] = [
     path: "/clubs",
   },
   {
+    name: "Club Details",
+    path: "/clubinfo",
+  },
+  {
+    name: "Profile",
+    path: "/profile",
+  },
+  {
     name: "Login",
     path: "/login",
   },
   {
-    name: "Club Details",
-    path: "/clubinfo",
+    name: "Add Clubs",
+    path: "/addclubs",
   },
 ];
 

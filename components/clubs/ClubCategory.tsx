@@ -1,15 +1,13 @@
-
-import { Box, Divider, Flex, Heading } from "@chakra-ui/react"
-import React from "react"
-import styles from "../clubs/clubs.module.css"
-import { ClubComponent } from "../../types"
-import ClubEntry from "./ClubEntry"
-
+import { Box, Divider, Flex, Heading } from "@chakra-ui/react";
+import React from "react";
+import styles from "../clubs/clubs.module.css";
+import { ClubComponent } from "../../types";
+import ClubEntry from "./ClubEntry";
 
 
 type Props = {
-  component: ClubComponent
-}
+  component: ClubComponent;
+};
 
 const ClubCategory = ({ component }: Props) => {
   console.log({ component })

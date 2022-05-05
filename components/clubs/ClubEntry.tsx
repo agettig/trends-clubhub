@@ -24,7 +24,7 @@ const ClubEntry = ({ club }: Props) => {
         </Box>
       </Box>
     </Link>
-  )
-}
+  );
+};
 
-export default ClubEntry
+export default ClubEntry;

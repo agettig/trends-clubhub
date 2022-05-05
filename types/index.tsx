@@ -1,4 +1,4 @@
-import { StringDecoder } from "string_decoder"
+import { StringDecoder } from "string_decoder";
 
 export type Club = {
   name: string
@@ -7,6 +7,7 @@ export type Club = {
   description: string
   website: string
   president: string
+  category: string
 }
 
 export type ClubWithId = Club & {
@@ -25,6 +26,4 @@ export type Event = {
   club: string
   likes: number
 }
-
-export type Category = "project-team" | "sports"
 
