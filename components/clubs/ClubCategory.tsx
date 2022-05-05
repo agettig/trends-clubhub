@@ -10,7 +10,6 @@ type Props = {
 };
 
 const ClubCategory = ({ component }: Props) => {
-  console.log({ component })
   return (
 
     < Box padding={10} marginTop={10} borderWidth="1px" borderRadius="sm" p="4">
@@ -21,11 +20,7 @@ const ClubCategory = ({ component }: Props) => {
             return (<ClubEntry key={club.id} club={club} />)
           })}
       </Flex>
-
-
     </Box >
-
-
   )
 }
 

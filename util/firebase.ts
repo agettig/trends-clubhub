@@ -1,6 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
+
 import withFirebaseAuth from "react-with-firebase-auth";
 import {
   getAuth,
@@ -24,7 +24,7 @@ const providers = {
 };
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
 const db = getFirestore(app);
 const auth = getAuth(app);
 

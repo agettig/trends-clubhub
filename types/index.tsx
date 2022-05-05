@@ -21,9 +21,11 @@ export type ClubComponent = {
 }
 
 export type Event = {
+  id: string
   date: string
   description: string
   club: string
   likes: number
+  name: string
 }
 

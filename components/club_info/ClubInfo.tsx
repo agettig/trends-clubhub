@@ -1,40 +1,56 @@
-import { Club } from "../../types";
+import { ClubWithId } from "../../types";
 import image from '../clubs/gymnastics.jpg';
-import { Heading, Image } from '@chakra-ui/react'
+import { Divider, Heading, Image, Box } from '@chakra-ui/react'
 import Link from 'next/link'
-import { Button, Box } from "@chakra-ui/react"
+import { query, collection, where, onSnapshot } from "firebase/firestore";
+import { db } from "../../util/firebase";
+import { useEffect, useState } from "react";
+import Events from "./Events";
 
-const clubData: Club = {
-    name: "Big Red Football",
-    email: "cufootball@cornell.edu",
-    image: image.src,
-    description: "The Cornell Big Red football team represents Cornell University in National Collegiate Athletic Association Division I Football Championship Subdivision college football competition as a member of the Ivy League. It is one of the oldest and most storied football programs in the nation.",
-    website: "",
-    president: ""
-}
 
 const event: string = "SAAC, NAMI To Host Mental Health Awareness Challenge From May 1-8"
+type Props = {
+    clubData: ClubWithId | null
+}
 
 const ClubInfo = () => {
-    return (
-        <>
-            <Box width="80%" margin="auto">
-                <Heading>{clubData.name}</Heading>
-                <p>Email: {clubData.email}</p>
-                <Image src={clubData.image} alt="Image" />
-                <p>Description: {clubData.description}</p>
-                <br></br>
-                <span>Upcoming Event:</span>
-                <Link
-                    href="https://cornellbigred.com/news/2022/4/22/womens-track-field-saac-nami-to-host-mental-health-awareness-challenge-from-may-1-8.aspx"
-                    passHref>
-                    <a target="_blank">
-                        <u> {event} </u>
-                    </a>
-                </Link>
-            </Box>
-        </>
+    let url = ((new URL(window.location.href)))
+
+    let clubName = url.searchParams.get('club')
+    const [club, setClub] = useState<ClubWithId[] | null>(null)
+
+    const clubsCollectionRef = query(
+        collection(db, "clubs")
     )
+
+    const clubQuery = query(clubsCollectionRef, where('name', '==', clubName))
+
+    useEffect(() => {
+        const unsubscribe = onSnapshot(clubQuery, (querySnapshot) => {
+            const clubArr = querySnapshot.docs.map(club => ({ ...club.data(), id: club.id } as ClubWithId))
+            setClub(clubArr)
+        }
+        )
+        return unsubscribe
+    })
+
+    console.log("test")
+    const clubData = club ? club[0] : null
+
+    return (
+
+        <>
+            {clubData ? (
+                <Box width="80%" margin="auto">
+                    <Heading>{clubData.name}</Heading>
+                    <p>Email: {clubData.email}</p>
+                    {clubData.image ?? <Image src={clubData.image} alt="Image" />}
+                    <p>Description: {clubData.description}</p>
+                    <Divider />
+                    <Events clubName={clubName} />
+                </Box>)
+                : <Box></Box>}
+        </>)
 }
 
 export default ClubInfo
