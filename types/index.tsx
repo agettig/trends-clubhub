@@ -1,22 +1,23 @@
-import { StringDecoder } from "string_decoder"
+import { StringDecoder } from "string_decoder";
 
 export type Club = {
-  clubName: string
-  clubId: number
-  // img_source: string
-}
+  name: string;
+  description: string;
+  category: string;
+  email: string;
+  president: string;
+  website: string;
+};
 
 export type ClubComponent = {
-  category: string
-  clubs: Club[]
-
-}
+  category: string;
+  clubs: Club[];
+};
 
 export type ClubInfo = Club & {
-  followed: boolean
-  email: string,
-  image: string,
-  description: string,
-  event: string
-}
-
+  followed: boolean;
+  email: string;
+  image: string;
+  description: string;
+  event: string;
+};
