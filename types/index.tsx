@@ -20,3 +20,9 @@ export type ClubInfo = Club & {
   event: string
 }
 
+export type Comment = {
+  comment: string,
+  event: string,
+  user: string
+}
+

@@ -1,5 +1,8 @@
 import { Button, HStack, Input } from "@chakra-ui/react"
+import { collection, addDoc } from "firebase/firestore"
 import { FormEventHandler, useState } from "react"
+import { db } from "../../util/firebase"
+import { Comment } from "../../types"
 
 const AddForm = () => {
 
@@ -9,7 +12,14 @@ const AddForm = () => {
         e.preventDefault()
         if (description === "") return
 
-        // TODO: Database Stuff
+        const comment: Comment = {
+            comment: description,
+            event: "asd", // TODO: Current Event
+            user: "asd" // TODO: Current User
+        }
+
+        const commentRef = collection(db, "comments")
+        addDoc(commentRef, comment).then()
 
         setDescription("")
     }
