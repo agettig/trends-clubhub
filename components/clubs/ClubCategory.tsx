@@ -11,6 +11,7 @@ type Props = {
 }
 
 const ClubCategory = ({ component: { category, clubs } }: Props) => {
+
   return (
 
     < Box padding={10} marginTop={10} borderWidth="1px" borderRadius="sm" p="4">

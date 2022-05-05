@@ -20,3 +20,5 @@ export type ClubInfo = Club & {
   event: string
 }
 
+export type Category = "project-team" | "sports"
+

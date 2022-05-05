@@ -2,6 +2,8 @@ import React from "react";
 import NextLink from "next/link";
 import { Box, Button, HStack, Link } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+// import useAuth from "../auth/AuthUserProvider"
+// import { userInfo } from "os";
 
 type NavLinkData = {
   name: string;
@@ -55,6 +57,7 @@ const NavLink = ({ name, path }: NavLinkData) => {
 };
 
 const Navbar = () => {
+
   return (
     <Box px={4} shadow="base">
       <HStack justifyContent="space-between">
@@ -63,6 +66,7 @@ const Navbar = () => {
             <NavLink key={data.path} {...data} />
           ))}
         </HStack>
+
       </HStack>
     </Box>
   );
