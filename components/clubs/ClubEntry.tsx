@@ -16,7 +16,7 @@ const ClubEntry = ({ club }: Props) => {
 
   return (
     <Link href={clubUrl} passHref>
-      <Box className={styles.element} borderWidth="1px" borderRadius="lg" p="4">
+      <Box className={styles.element} borderWidth="1px" borderRadius="lg" p="4" margin={4}>
         <Box className="image-container">
           <Image src={image.src} alt="Image" className="image-style" />
         </Box>

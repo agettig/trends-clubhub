@@ -6,16 +6,20 @@ type Props = {
 };
 
 const EventDetails = ({ event }: Props) => {
+
   return (
     <>
-      <Box>
-        <Heading size='sm'>{event.name}</Heading>
-        <Box>
-          {event.date}
-          <Divider />
-          {event.description}
-        </Box>
+      <Box border="thin" borderColor="black">
+        <strong>{event.name}</strong>
+        <br></br>
+        {event.description}
+        <br></br>
+        {event.date.toDate().toDateString()}
+        <br></br>
+        {event.date.toDate().toTimeString()}
+
       </Box>
+      <Divider />
     </>
   )
 }

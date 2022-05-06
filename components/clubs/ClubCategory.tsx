@@ -14,7 +14,7 @@ const ClubCategory = ({ component }: Props) => {
 
     < Box padding={10} marginTop={10} borderWidth="1px" borderRadius="sm" p="4">
       <Heading size="lg" marginBottom={4}>{component.category}</Heading>
-      <Flex flexWrap="wrap" direction="row" align="stretch" justify="space-around">
+      <Flex flexWrap="wrap" direction="row" align="stretch" justify="flex-start">
         {component.clubs.map(
           (club) => {
             return (<ClubEntry key={club.id} club={club} />)

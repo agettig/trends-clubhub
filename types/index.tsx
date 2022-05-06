@@ -1,3 +1,4 @@
+import { Timestamp } from "firebase/firestore";
 import { StringDecoder } from "string_decoder";
 
 export type Club = {
@@ -22,7 +23,7 @@ export type ClubComponent = {
 
 export type Event = {
   id: string
-  date: string
+  date: Timestamp
   description: string
   club: string
   likes: number
