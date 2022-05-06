@@ -3,51 +3,53 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
+import { collection, where, query, onSnapshot } from "firebase/firestore";
+import { db } from "../../util/firebase";
+import { useEffect, useState } from "react";
 
 //Will need to .map the events that they are interested in
 const Profile = () => {
+  // const eventsCollectionRef = query(collection(db, "events"));
+  // const usersCollectionRef = query(collection(db, "users"));
+  // const [events, setEvents] = useState<Event[] | null>(null);
+
+  // useEffect(() => {
+  //   const eventsQuery = query(usersCollectionRef, where("events", "!=", null));
+  //   const unsubscribe = onSnapshot(eventsQuery, (querySnapshot) => {
+  //     const eventArr = querySnapshot.docs.map(
+  //       (event) => ({ ...event.data(), id: event.id } as Event)
+  //     );
+  //     setEvents(eventArr);
+  //   });
+  //   return unsubscribe;
+  // }, []);
+  // console.log(eventsQuery);
   return (
     <TableContainer>
       <Table variant="simple">
-        <TableCaption>Imperial to metric conversion factors</TableCaption>
+        <TableCaption placement="top">Saved Events</TableCaption>
         <Thead>
           <Tr>
-            <Th>To convert</Th>
-            <Th>into</Th>
-            <Th isNumeric>multiply by</Th>
+            <Th>Host Club</Th>
+            <Th>Date</Th>
+            <Th>Description</Th>
+            <Th>Event Name</Th>
           </Tr>
         </Thead>
         <Tbody>
           <Tr>
-            <Td>inches</Td>
-            <Td>millimetres (mm)</Td>
-            <Td isNumeric>25.4</Td>
-          </Tr>
-          <Tr>
-            <Td>feet</Td>
-            <Td>centimetres (cm)</Td>
-            <Td isNumeric>30.48</Td>
-          </Tr>
-          <Tr>
-            <Td>yards</Td>
-            <Td>metres (m)</Td>
-            <Td isNumeric>0.91444</Td>
+            <Td></Td>
+            <Td></Td>
+            <Td></Td>
+            <Td></Td>
           </Tr>
         </Tbody>
-        <Tfoot>
-          <Tr>
-            <Th>To convert</Th>
-            <Th>into</Th>
-            <Th isNumeric>multiply by</Th>
-          </Tr>
-        </Tfoot>
       </Table>
     </TableContainer>
   );
