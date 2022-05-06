@@ -10,12 +10,13 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCJ7WPFCK-weZcJNhT0Dqs95YCuj02k3kU",
-  authDomain: "clubhub-548cb.firebaseapp.com",
-  projectId: "clubhub-548cb",
-  storageBucket: "clubhub-548cb.appspot.com",
-  messagingSenderId: "68145781303",
-  appId: "1:68145781303:web:593fa6c24d70bf3ebdfdb2"
+  apiKey: "AIzaSyDXOhHJOGTEiqiSjS4YrQ4KHr9UX8gd1QQ",
+  authDomain: "trends-clubhub.firebaseapp.com",
+  projectId: "trends-clubhub",
+  storageBucket: "trends-clubhub.appspot.com",
+  messagingSenderId: "944154353210",
+  appId: "1:944154353210:web:ab64536c28a075f34a5f03",
+  measurementId: "G-DH7LPRTD1L"
 };
 
 const providers = {

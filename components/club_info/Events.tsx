@@ -40,6 +40,7 @@ const Events = ({ clubName }: Props) => {
   return (
     <>
       <Heading size="md">Upcoming Events:</Heading>
+      {console.log(data)}
       {data.length === 0 ? <Box>Sorry, no upcoming events. Please check back soon!</Box> :
         (data.map(event => {
           // return events if they exist or return message that no events are scheduled
