@@ -27,3 +27,9 @@ export type Event = {
   likes: number
 }
 
+export type Comment = {
+  comment: string,
+  event: string,
+  user: string
+}
+
