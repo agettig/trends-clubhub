@@ -24,9 +24,6 @@ const ClubInfo = () => {
 
     let clubName = url.searchParams.get('club')
 
-    console.log(clubName)
-
-
     const clubQuery = query(clubsCollectionRef, where('name', '==', clubName))
 
     const [club, setClub] = useState<ClubWithId[] | null>(null)
@@ -41,12 +38,9 @@ const ClubInfo = () => {
     }, [])
 
     const clubData = club ? club[0] : null
-    console.log(clubData)
-
     return (
 
         <>
-            {console.log(clubName)}
             {clubData ? (
                 <Box width="80%" margin="auto">
                     <Heading>{clubData.name}</Heading>

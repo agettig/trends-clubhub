@@ -36,14 +36,16 @@ const Events = ({ clubName }: Props) => {
     return unsubscribe
   }, [])
 
-  console.log(events)
+  const data = events || []
   return (
     <>
       <Heading size="md">Upcoming Events:</Heading>
-      {events ? (events.map(event => {
-        // return events if they exist or return message that no events are scheduled
-        return (<EventDetails key={event.id} event={event} />)
-      })) : <Box>No current events. Please check back later for updates.</Box>}
+      {data.length === 0 ? <Box>Sorry, no upcoming events. Please check back soon!</Box> :
+        (data.map(event => {
+          // return events if they exist or return message that no events are scheduled
+          return (<EventDetails key={event.id} event={event} />)
+        }))
+      }
     </>
 
   )
