@@ -29,3 +29,9 @@ export type Event = {
   name: string
 }
 
+export type Comment = {
+  comment: string,
+  event: string,
+  user: string
+}
+
