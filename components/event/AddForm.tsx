@@ -1,12 +1,21 @@
 import { Button, HStack, Input } from "@chakra-ui/react"
 import { collection, addDoc } from "firebase/firestore"
-import { FormEventHandler, useState } from "react"
+import { FormEventHandler, useEffect, useState } from "react"
 import { db } from "../../util/firebase"
 import { Comment } from "../../types"
+import { useRouter } from "next/router"
 
 const AddForm = () => {
-
+    const [param, setParam] = useState("")
     const [description, setDescription] = useState("")
+    const router = useRouter()
+
+    useEffect(() => {
+        if(!router.isReady) return
+        const query = router.query
+        const eventId = query.eventId as string
+        setParam(eventId)
+    }, [router.isReady])
 
     const addComment: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault()
@@ -14,8 +23,8 @@ const AddForm = () => {
 
         const comment: Comment = {
             comment: description,
-            event: "asd", // TODO: Current Event
-            user: "asd" // TODO: Current User
+            eventId: param, 
+            userId: "Temp" // TODO: Current User
         }
 
         const commentRef = collection(db, "comments")
@@ -24,18 +33,24 @@ const AddForm = () => {
         setDescription("")
     }
 
-    return (
-        <form onSubmit={addComment}>
-            <HStack>
-                <Input value={description}
-                type="text"
-                placeholder="I loved ..."
-                onChange={(e) => setDescription(e.target.value)}
-                />
-                <Button type="submit">Add Comment</Button>
-            </HStack>
-        </form>
-    )
+    if (param) {
+        return (
+            <form onSubmit={addComment}>
+                <HStack>
+                    <Input value={description}
+                    type="text"
+                    placeholder="I loved ..."
+                    onChange={(e) => setDescription(e.target.value)}
+                    />
+                    <Button type="submit">Add Comment</Button>
+                </HStack>
+            </form>
+        )
+    } else {
+        return (
+            <div></div>
+        )
+    }
 }
 
 export default AddForm

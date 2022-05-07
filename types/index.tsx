@@ -32,7 +32,7 @@ export type Event = {
 
 export type Comment = {
   comment: string,
-  event: string,
-  user: string
+  eventId: string,
+  userId: string
 }
 
