@@ -32,7 +32,7 @@ const AddClubs = () => {
       email: email,
       president: president,
       website: website,
-      image: ""
+      image: "",
     };
 
     addDoc(clubsCollectionRef, club);
@@ -84,7 +84,19 @@ const AddClubs = () => {
           placeholder="Club website..."
           onChange={(e) => setWebsite(e.target.value)}
         />
-        <Button type="submit">Add Club</Button>
+        <Button
+          type="submit"
+          isDisabled={
+            name === "" ||
+            description === "" ||
+            category === "" ||
+            email === "" ||
+            president === "" ||
+            website === ""
+          }
+        >
+          Add Club
+        </Button>
       </VStack>
     </form>
   );
