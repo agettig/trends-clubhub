@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { db } from "../../util/firebase";
 import { Event } from "../../types";
 import AddForm from "./AddForm";
+import Comment from "./Comment";
 
 const Event = () => {
     const [param, setParam] = useState("")
@@ -56,6 +57,7 @@ const Event = () => {
                             <Text>Date: {`${month}/${day}/${year}  ${hours}:${minutes}`}</Text>
                             <Text>Likes: {event.likes}</Text>
                             <AddForm />
+                            <Comment />
                         </VStack>
                     </Center>
                 }
