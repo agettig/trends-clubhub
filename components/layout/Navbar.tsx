@@ -39,6 +39,10 @@ const navData: NavLinkData[] = [
     name: "Event",
     path: "/event",
   },
+  {
+    name: "All Events",
+    path: "/events",
+  },
 ];
 
 const NavLink = ({ name, path }: NavLinkData) => {
