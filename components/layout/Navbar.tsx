@@ -34,11 +34,7 @@ const navData: NavLinkData[] = [
   {
     name: "Add Clubs",
     path: "/addclubs",
-  },
-  {
-    name: "Event",
-    path: "/event",
-  },
+  },  
   {
     name: "All Events",
     path: "/events",
