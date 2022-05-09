@@ -23,10 +23,10 @@ const navData: NavLinkData[] = [
     name: "Explore",
     path: "/clubs",
   },
-  {
-    name: "Profile",
-    path: "/profile",
-  },
+  // {
+  //   name: "Profile",
+  //   path: "/profile",
+  // },
   {
     name: "Login",
     path: "/login",
@@ -69,7 +69,6 @@ const NavLink = ({ name, path }: NavLinkData) => {
 };
 
 const Navbar = () => {
-
   return (
     <Box px={4} shadow="base">
       <HStack justifyContent="space-between">
@@ -78,7 +77,6 @@ const Navbar = () => {
             <NavLink key={data.path} {...data} />
           ))}
         </HStack>
-
       </HStack>
     </Box>
   );
