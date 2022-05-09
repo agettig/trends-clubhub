@@ -1,5 +1,5 @@
 import { Event } from "../../types"
-import { Heading, Box } from '@chakra-ui/react'
+import { Heading, Box, Link } from '@chakra-ui/react'
 
 type Props = {
     event: Event
@@ -8,6 +8,7 @@ type Props = {
 const EventItem = ({ event }: Props) => {
     return (
         <>
+            <Link href={`/event/${event.id}`}>            
             <Box border="thin" borderColor="black">
             <strong>{event.name}</strong> 
             {/* <Button colorScheme="facebook" size='xs' onClick={like}>Like</Button> */}
@@ -21,6 +22,7 @@ const EventItem = ({ event }: Props) => {
             {event.date.toDate().toTimeString()}
             </Box>
             <div> </div>
+            </Link>
         </>
     )
 }

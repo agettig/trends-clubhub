@@ -36,3 +36,7 @@ export type Comment = {
   userId: string
 }
 
+export type CommentWithId = Comment & {
+  id: string
+}
+

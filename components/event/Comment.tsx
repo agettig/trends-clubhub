@@ -1,22 +1,40 @@
-import { Center, VStack, Heading, Box, Button } from "@chakra-ui/react"
-import { collection, doc, getDoc, onSnapshot, query, where } from "firebase/firestore"
+import { Center, VStack, Heading, Box, Button, IconButton } from "@chakra-ui/react"
+import { collection, deleteDoc, doc, getDoc, onSnapshot, query, where } from "firebase/firestore"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
 import { db } from "../../util/firebase"
-import { Comment } from "../../types"
+import { CommentWithId } from "../../types"
+import { DeleteIcon } from "@chakra-ui/icons"
 
+const CommentBox = ( {comment, eventId, userId, id}: CommentWithId ) => {
 
-const CommentBox = ( {comment, eventId, userId}: Comment ) => {
+    const deleteComment = () => {
+        const taskRef = collection(db, "comments")
+        const docRef = doc(taskRef, id)
+        deleteDoc(docRef).then()
+      }
+
     return (
-        <Box w="300px" borderWidth="1px" borderRadius="lg" p="2" textAlign="center">
-            {comment}
-        </Box>
+        <Center>
+            <Box w="300px" borderWidth="1px" borderRadius="lg" p="2" textAlign="center">
+                {comment}
+            </Box>
+            <IconButton
+            aria-label="delete comment"
+            size="xs"
+            variant="ghost"
+            colorScheme="red"
+            icon={<DeleteIcon />}
+            onClick={deleteComment}
+            />
+        </Center>
+        
     )
 }
 
 const Comment = () => {
     const [param, setParam] = useState("")
-    const [comments, setComments] = useState<Comment[] | null>(null)
+    const [comments, setComments] = useState<CommentWithId[] | null>(null)
     const router = useRouter()
 
     const commentsRef = query(collection(db, "comments"))
@@ -34,7 +52,7 @@ const Comment = () => {
 
         const unsubscribe = onSnapshot(commentQuery, (querySnapshot) => {
             const commentArr = querySnapshot.docs.map(
-              (comment) => ({ ...comment.data()} as Comment)
+              (comment) => ({ ...comment.data(), id: comment.id} as CommentWithId)
             );
             setComments(commentArr);
           });
@@ -49,7 +67,7 @@ const Comment = () => {
                         <VStack mt="25" spacing={8}>
                             {
                                 comments.map((data) => 
-                                <CommentBox {...data} />)
+                                <CommentBox key={data.id} {...data} />)
                             }
                         </VStack>
                     </Center>
