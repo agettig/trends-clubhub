@@ -1,6 +1,6 @@
 import { Box, Divider, Heading, Button } from "@chakra-ui/react";
-import { Event } from "../../types"
-import { collection, doc, updateDoc } from "firebase/firestore";
+import { ClubWithId, Event } from "../../types"
+import { collection, doc, getDoc, onSnapshot, query, updateDoc, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../../util/firebase";
 
@@ -11,54 +11,38 @@ type Props = {
 
 const EventDetails = ({ event }: Props) => {
 
-  const [liked, setliked] = useState(false)
-  const like = () => {
-    // const eventRef = collection(db, "tasks")
-    // const docRef = doc(eventRef, event.id)
-    // updateDoc(docRef, {likes: event.likes+1});
-    if (liked) {
-      setliked(false)
-    }
-    else {
-      setliked(true)
-    }
-  }
+  const [liked, setLiked] = useState(false)
+  const [numLikes, setLikes] = useState(event.likes)
 
-  if(liked) {
-    return (
-      <>
-        <Box border="thin" borderColor="black">
-          <strong>{event.name}</strong> <Button id="like" colorScheme="facebook" size='xs' onClick={like}>Liked!</Button>
-          <br></br>
-          {event.description}
-          <br></br>
-          {event.date.toDate().toDateString()}
-          <br></br>
-          {event.date.toDate().toTimeString()}
-  
-        </Box>
-        <Divider />
-      </>
-    )
+  const like = () => {
+    const eventRef = collection(db, "events")
+    const docRef = doc(eventRef, event.id)
+    setLiked(!liked)
+    const newLikes = !liked ? numLikes + 1 : numLikes - 1
+    setLikes(newLikes)
+    updateDoc(docRef, { likes: newLikes });
+
   }
-  else{
-    return (
-      <>
-        <Box border="thin" borderColor="black">
-          <strong>{event.name}</strong> <Button id="like" colorScheme="facebook" size='xs' onClick={like}>Like</Button>
-          <br></br>
-          {event.description}
-          <br></br>
-          {event.date.toDate().toDateString()}
-          <br></br>
-          {event.date.toDate().toTimeString()}
-  
-        </Box>
-        <Divider />
-      </>
-    )
-  }
-  
+  console.log(numLikes)
+  return (
+    <>
+      <Box margin-top={2}>
+        <strong>{event.name}</strong>
+        <Button float="right" padding={2} margin={2} id="like" colorScheme={liked ? "pink" : "facebook"} size='xs' onClick={like}>{liked ? "Liked" : "Like"}</Button>
+        <br></br>
+        Number of Likes: {event.likes}
+        <br></br>
+        {event.description}
+        <br></br>
+        {event.date.toDate().toDateString()}
+        <br></br>
+        {event.date.toDate().toTimeString()}
+
+      </Box>
+      <Divider />
+    </>
+  )
 }
+
 
 export default EventDetails

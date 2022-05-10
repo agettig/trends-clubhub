@@ -22,8 +22,6 @@ const Gallery = () => {
     )
     return unsubscribe
   }, [])
-  console.log("test")
-
   const data: ClubComponent[] =
     [{
       category: "Clubs",
