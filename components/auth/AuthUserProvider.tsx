@@ -1,15 +1,16 @@
 import { User } from "firebase/auth";
-import { createContext, useContext, FC } from "react";
+import { createContext, useContext, FC, ReactNode } from "react";
 import { WrappedComponentProps } from "react-with-firebase-auth";
 import { createComponentWithAuth } from "../../util/firebase";
 
 type AuthData = Omit<WrappedComponentProps, "user"> & {
   user?: User | null;
 };
+type Props = WrappedComponentProps & { children: ReactNode };
 
 const AuthUserContext = createContext<AuthData | undefined>(undefined);
 
-const AuthUserProvider: FC<WrappedComponentProps> = ({ ...auth }) => (
+const AuthUserProvider: FC<Props> = ({ ...auth }) => (
   <AuthUserContext.Provider value={auth}></AuthUserContext.Provider>
 );
 
