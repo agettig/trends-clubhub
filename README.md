@@ -4,6 +4,6 @@
 
 ### Getting Started
 
-Open [Clubhub](trends-clubhub.vercel.app) with your browser to see the result.
+Open [Clubhub](https://trends-clubhub.vercel.app/) with your browser to see the result.
 
 GitHub Repo: [Github](https://github.com/agettig/trends-clubhub)
