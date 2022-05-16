@@ -35,6 +35,8 @@ const ClubInfo = () => {
     return unsubscribe;
   }, []);
 
+  if (clubName == undefined) { clubName = null; }
+
   const clubData = club ? club[0] : null;
   return (
     <>
