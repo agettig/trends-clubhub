@@ -2,18 +2,8 @@
 
 ## Created by Harrison Chin (hc955), Ariela Gettig (aqg3) Peter Huo (yh384), and Raymond Lin(rl569)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ### Getting Started
 
-First, run the development server:
+Open [Clubhub](trends-clubhub.vercel.app) with your browser to see the result.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [trends-clubhub.vercel.app] with your browser to see the result.
-
-# clubhub
+GitHub Repo: [Github](https://github.com/agettig/trends-clubhub)
