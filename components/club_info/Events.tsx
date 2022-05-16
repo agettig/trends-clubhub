@@ -6,7 +6,7 @@ import { Event } from "../../types";
 import EventDetails from "./EventDetails";
 
 type Props = {
-  clubName: string | null;
+  clubName: string | null | undefined;
 };
 
 const eventsCollectionRef = query(collection(db, "events"));

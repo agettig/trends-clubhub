@@ -7,19 +7,20 @@ import { db } from "../../util/firebase";
 import { useEffect, useState } from "react";
 import Events from "./Events";
 
-const event: string =
-  "SAAC, NAMI To Host Mental Health Awareness Challenge From May 1-8";
-
-type Props = {
-  clubData: ClubWithId | null;
-};
-
 const clubsCollectionRef = query(collection(db, "clubs"));
 
 const ClubInfo = () => {
-  let url = new URL(window.location.href);
 
-  let clubName = url.searchParams.get("club");
+  const isBrowser = (!!window)
+  let url;
+  if (isBrowser) {
+    url = new URL(window.location.href);
+  }
+
+  let clubName;
+  if (url) {
+    clubName = url.searchParams.get("club");
+  }
 
   const clubQuery = query(clubsCollectionRef, where("name", "==", clubName));
 
