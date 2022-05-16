@@ -24,21 +24,23 @@ const ClubInfo = () => {
   const [club, setClub] = useState<ClubWithId[] | null>(null);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(clubQuery, (querySnapshot) => {
-      const clubArr = querySnapshot.docs.map(
-        (club) => ({ ...club.data(), id: club.id } as ClubWithId)
-      );
-      setClub(clubArr);
-    });
-    return unsubscribe;
+    if (typeof window !== 'undefined') {
+      const unsubscribe = onSnapshot(clubQuery, (querySnapshot) => {
+        const clubArr = querySnapshot.docs.map(
+          (club) => ({ ...club.data(), id: club.id } as ClubWithId)
+        );
+        setClub(clubArr);
+      });
+      return unsubscribe;
+    }
   }, []);
 
-  if (clubName == undefined) { clubName = null; }
-
   const clubData = club ? club[0] : null;
+
   return (
     <>
-      {clubData ? (
+
+      {clubData && clubName ? (
         <Box width="80%" margin="auto">
           <Heading>{clubData.name}</Heading>
           <p>Email: {clubData.email}</p>
