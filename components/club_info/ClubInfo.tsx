@@ -11,9 +11,8 @@ const clubsCollectionRef = query(collection(db, "clubs"));
 
 const ClubInfo = () => {
 
-  const isBrowser = (!!window)
   let url;
-  if (isBrowser) {
+  if (typeof window !== 'undefined') {
     url = new URL(window.location.href);
   }
 
