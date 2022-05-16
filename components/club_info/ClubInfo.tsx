@@ -15,9 +15,10 @@ const ClubInfo = () => {
   }
 
   let clubName;
-  if (url) {
-    clubName = url.searchParams.get("club");
-  }
+  console.log(url)
+  url ? clubName = url.searchParams.get("club") : clubName = "";
+  console.log(clubName)
+
 
   const clubQuery = query(clubsCollectionRef, where("name", "==", clubName));
 
