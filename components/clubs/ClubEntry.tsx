@@ -11,7 +11,7 @@ type Props = {
 }
 
 const ClubEntry = ({ club }: Props) => {
-  const clubUrl = new URL("http://localhost:3000/clubinfo")
+  const clubUrl = new URL("https://trends-clubhub-cveahvgwb-agettig.vercel.app/clubinfo")
   clubUrl.searchParams.append("club", club.name);
 
   return (
