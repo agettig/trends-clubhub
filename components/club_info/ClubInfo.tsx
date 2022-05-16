@@ -1,7 +1,5 @@
 import { ClubWithId } from "../../types";
-import image from "../clubs/gymnastics.jpg";
 import { Divider, Heading, Image, Box } from "@chakra-ui/react";
-import Link from "next/link";
 import { query, collection, where, onSnapshot } from "firebase/firestore";
 import { db } from "../../util/firebase";
 import { useEffect, useState } from "react";
